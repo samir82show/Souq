@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Qatar Soug</title>
+        <link rel="shortcut icon" href=""/>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputStylesheet library="css" name="jquery-ui.css"/>
+        <h:outputScript library="js" name="jquery.js"/>
+        <h:outputScript library="js" name="jquery-ui.js"/>
+        <script>
+            $(function () {
+                $("#login-tabs").tabs();
+            });
+        </script>
+    </h:head>
+    <h:body>
+
+        <div id="container">
+            <img id="logo" src="resources/img/rawoona.png" alt="img"/>
+
+            <div id="login-tabs">
+                <ul>
+                    <li><a href="#signin">Login</a></li>
+                    <li><a href="#register">Register</a></li>
+                </ul>
+
+                <div id="signin">
+                    <h:form prependId="false">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Email:" for="email" />
+                            <h:inputText id="email" value="#{controller.customer.email}" title="Email" />
+                            <h:outputLabel value="Password:" for="password" />
+                            <h:inputText id="password" value="#{controller.customer.password}" 
+                                         title="Password" required="true" requiredMessage="The Password field is required."/>
+                            <h:commandButton id="login_cmd" value="Login"/>
+                        </h:panelGrid>
+                    </h:form>
+
+                </div>
+                <div id="register">
+                    <h:form prependId="false">
+                        <h:panelGrid columns="3">
+                            <h:outputLabel value="Id:" for="id" />
+                            <h:inputText readonly="true" id="id" value="#{controller.customer.id}" title="Id"/>
+                            <h:message for="id"/>
+                            <h:outputLabel value="Name:" for="name" />
+                            <h:inputText id="name" value="#{controller.customer.name}" title="Name" required="true" requiredMessage="The Name field is required."/>
+                            <h:message for="name"/>
+                            <h:outputLabel value="Password:" for="password" />
+                            <h:inputSecret id="regis_password" value="#{controller.customer.password}" title="Password" required="true" requiredMessage="The Password field is required."/>
+                            <h:message for="regis_password"/>
+                            <h:outputLabel value="Email:" for="email" />
+                            <h:inputText id="regist_email" value="#{controller.customer.email}" title="Email" />
+                            <h:message for="regist_email"/>
+                            <h:outputLabel value="Mobile:" for="mobile" />
+                            <h:inputText id="mobile" value="#{controller.customer.mobile}" title="Mobile" required="true" requiredMessage="The Mobile field is required."/>
+                            <h:message for="mobile"/>
+                            <h:outputLabel value="Type:" for="type" />
+                            <h:selectOneRadio id="type" value="#{controller.customer.type}">
+                                <f:selectItem itemValue="0" itemLabel="Personal" />
+                                <f:selectItem itemValue="1" itemLabel="Business" />
+                            </h:selectOneRadio>
+                            <h:message for="type"/>
+                            <h:commandButton id="regist_cmd" value="Submit" action="#{controller.createCustomer()}">
+                                <f:ajax execute="@form" render=":status"/>
+                            </h:commandButton>
+                        </h:panelGrid>
+                    </h:form>
+                    <br />
+                    <h:outputLabel id="status" value="#{controller.status}"/>
+
+                </div>
+            </div>
+
+        </div>
+
+    </h:body>
+</html>
+

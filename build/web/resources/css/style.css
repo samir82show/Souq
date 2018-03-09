@@ -1,0 +1,45 @@
+/*index page*/
+
+#tabs {
+}
+
+#logo {
+    width: 200px;
+    height: 50px; 
+}
+
+
+#footer {
+/*    position: relative;
+    left: 200px;*/
+    width: 100% ;
+    background-color: #6EBEBF;
+    color: white;
+    text-align: center;
+    height: 50px;
+    
+    /*padding-top: 2px;*/
+    margin-top: 43%;
+
+}
+
+#mydate {
+    float: right;
+/*    margin-top: 40px;
+    margin-right: 130px;*/
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #b2beb5;
+    font-style: italic;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #b2beb5;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #b2beb5;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #b2beb5;
+}
